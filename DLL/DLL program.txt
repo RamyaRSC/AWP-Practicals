@@ -1,0 +1,96 @@
+DLL program
+ 
+create new project> Class Library (.NET Framework) >
+.cs file> code >build
+
+create new project> ASP.Web application (.NET Framework > 
+click references (right) > browse for the above class library file > bin > debug > .dll file (select) > click ok
+add webform > copy code .aspx > copy code .aspx.cs (add your classlib namespace) > run
+
+Class1.cs
+namespace DLL
+{
+    public class Class1
+    {
+        public double add(int x, int y)
+        {
+            return (x + y);
+        }
+        public double sub(int x, int y)
+        {
+            return (x - y);
+        }
+        public double mul(int x, int y)
+        {
+            return (x * y);
+        }
+
+    }
+}
+
+WebForm1.aspx
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WADLL.WebForm1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            Enter Number 1:<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <br />Enter Number 2:<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <br /><asp:Button ID="Button1" runat="server" Text="Addition" OnClick="Button1_Click" />
+            <br /><asp:Button ID="Button2" runat="server" Text="Subtraction" OnClick="Button2_Click" />
+            <br /><asp:Button ID="Button3" runat="server" Text="Multiplication" OnClick="Button3_Click" />
+            <br />Solution:<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        </div>
+    </form>
+</body>
+</html>
+
+WebForm1.aspx.cs
+using System;
+using DLL;
+
+
+namespace WADLL
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            int x, y;
+            x = Convert.ToInt32(TextBox1.Text);
+            y = Convert.ToInt32(TextBox2.Text);
+            Class1 obj = new Class1();
+            Label1.Text = ("Addition is " + obj.add(x, y).ToString());
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            int x, y;
+            x = Convert.ToInt32(TextBox1.Text);
+            y = Convert.ToInt32(TextBox2.Text);
+            Class1 obj = new Class1();
+            Label1.Text = ("Subtraction is " + obj.sub(x, y).ToString());
+
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            int x, y;
+            x = Convert.ToInt32(TextBox1.Text);
+            y = Convert.ToInt32(TextBox2.Text);
+            Class1 obj = new Class1();
+            Label1.Text = ("Multiplication is " + obj.mul(x, y).ToString());
+        }
+    }
+}
