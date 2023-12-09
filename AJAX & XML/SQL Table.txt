@@ -1,0 +1,5 @@
+Right-click on project> add> new item> Data from left > 
+double click on the .mdf > right-click on tables > add new table > define structure > refresh
+in Tables you will find your table > show table > edit the data
+
+right click data connections on left > add new connection > give the database name where your table is > select use SQL Server Authentication > give username and password

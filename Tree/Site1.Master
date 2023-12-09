@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="tree.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table> 
+                 <tr> 
+                    <td colspan="2">Header</td>
+                 </tr>
+                 <tr> 
+                    <td> 
+                        <asp:TreeView ID="TreeView1" runat="server"> 
+                        <Nodes> 
+                        <asp:TreeNode Text="AWP" NavigateUrl="~/WebForm1.aspx"> 
+                            <asp:TreeNode Text="SPM" NavigateUrl="~/WebForm2.aspx"> 
+                                <asp:TreeNode Text="IOT" NavigateUrl="~/WebForm3.aspx"> 
+                                    <asp:TreeNode Text="NGT" NavigateUrl="~/WebForm4.aspx"></asp:TreeNode> 
+                                    <asp:TreeNode Text="AI" NavigateUrl="~/WebForm5.aspx"></asp:TreeNode>
+                                </asp:TreeNode>
+                            </asp:TreeNode>
+                        </asp:TreeNode> 
+                        </Nodes>
+                        </asp:TreeView> 
+                    </td>
+                </tr> 
+                <tr> 
+                    <td colspan="2">Footer
+                    </td>
+                </tr>
+            </table>
+             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+             </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
